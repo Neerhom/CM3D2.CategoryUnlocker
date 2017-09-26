@@ -4,7 +4,7 @@ Sybaris Patcher for unlocking addition categories.
 Unlocks additional categories, that while not used, were not cut out from the game, and ads them under Clothing tab.
 The unlocked categories are of Item type, and intended have no specific purpose, i.e. anything goes.
 
-List of caegories and associated model slots:
+List of categories and associated model slots:
 
 seieki_ashi - seieki_ashi
 
