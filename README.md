@@ -5,6 +5,7 @@ Unlocks additional categories, that were not cut out from the game, add add them
 The unlocked categories are of Item type, and intended have no specific purpose, i.e. anything goes.
 
 List of caegories and associated model slots:
+
 seieki_ashi - seieki_ashi
 
 seieki_face - seieki_face
