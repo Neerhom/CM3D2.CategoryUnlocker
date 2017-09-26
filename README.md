@@ -6,10 +6,16 @@ The unlocked categories are of Item type, and intended have no specific purpose,
 
 List of caegories and associated model slots:
 seieki_ashi - seieki_ashi
+
 seieki_face - seieki_face
+
 seieki_hara - seieki_hara
+
 seieki_hip - seieki_hip
+
 seieki_naka - seieki_naka
+
 seieki_mune - seieki_mune
+
 seieki_ude - seieki_ude
   
