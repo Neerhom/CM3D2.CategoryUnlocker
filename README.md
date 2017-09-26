@@ -20,7 +20,7 @@ seieki_mune - seieki_mune
 
 seieki_ude - seieki_ude
   
-Because these are inteded to be general purpose categories, the provided del menus also have support for tattoo and moles.
+Because these are intended to be general purpose categories, the provided del menus also have support for tattoo and moles.
 You can find more info on supported layers in the menu files themeselves.
 
 There are two basic mods to support the patcher, so the unlocked categories won't be entirely empty.
