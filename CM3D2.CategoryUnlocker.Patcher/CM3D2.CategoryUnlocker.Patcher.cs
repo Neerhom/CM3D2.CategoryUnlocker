@@ -42,22 +42,16 @@ namespace CM3D2.CategoryUnlockerk.Patcher
             MethodDefinition delmenuadder = catmanager.GetMethod("delmenuadder");
             CM3_cctor.InjectWith(delmenuadder, -1);
        
+        // expand PresetSetp reads
+
+            //target definition
+            TypeDefinition charactermgr = assembly.MainModule.GetType("CharacterMgr");
+            MethodDefinition setpreset = charactermgr.GetMethod("PresetSet");
+            // inject method definition
+            MethodDefinition ExtSet = catmanager.GetMethod("ExtSet");
+
+            setpreset.InjectWith(ExtSet, flags: InjectFlags.PassParametersVal );
         }
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
