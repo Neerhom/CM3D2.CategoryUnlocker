@@ -265,7 +265,46 @@ namespace CM3D2.CategoryUnlocker.Hook
             CM3.dicDelItem[MPN.seieki_ude] = "_I_seieki_ude_del.menu";
         }
 
+public static void ExtSet (global::Maid f_maid, global::CharacterMgr.Preset f_prest)
+        {
+            global::MaidProp[] array;
+            
+            if (f_prest.ePreType == global::CharacterMgr.PresetType.Wear || f_prest.ePreType == global::CharacterMgr.PresetType.All)
+            {
+                array = (from mp in f_prest.listMprop
+                         where 81 <= mp.idx && mp.idx <= 87
+                         select mp).ToArray<global::MaidProp>();
+            }
+            
+            else
+            { array = null; }
 
+            if (array != null)
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    global::MaidProp maidProp = array[i];
+                    if (maidProp.idx != 23)
+                    {
+                        f_maid.SetProp((global::MPN)maidProp.idx, maidProp.value, false);
+                        if (string.IsNullOrEmpty(maidProp.strFileName))
+                        {
+                            string strFileName = maidProp.strFileName;
+                            if (global::CM3.dicDelItem.TryGetValue((global::MPN)maidProp.idx, out strFileName))
+                            {
+                                maidProp.strFileName = strFileName;
+                            }
+                        }
+                        f_maid.SetProp((global::MPN)maidProp.idx, maidProp.strFileName, 0, false);
+                        if (global::CharacterMgr.EditModeLookHaveItem && !global::GameMain.Instance.CharacterMgr.GetPlayerParam().status.IsHaveItem(maidProp.strFileName))
+                        {
+                            f_maid.DelProp((global::MPN)maidProp.idx, false);
+                        }
+                    }
+                }
+            }
+           
+        }
 
 }
 }
