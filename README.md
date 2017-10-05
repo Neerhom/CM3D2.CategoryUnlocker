@@ -1,33 +1,44 @@
 # CM3D2.CategoryUnlocker
-Sybaris Patcher for unlocking addition categories.
+Sybaris Patcher that adds new menu categories and model slots.
 
-Unlocks additional categories, that while not used, were not cut out from the game, and ads them under Clothing tab.
-The unlocked categories are of Item type, and intended have no specific purpose, i.e. anything goes.
 
-List of categories and associated model slots:
+!!!!!!!!!WARNING!!!!!!!!!!
+In the unlikely even of this patcher becoming incompatible with the game or one wants to uninstall, ALL savefiles saved with this patcher active will be trated by the base game as invalid! 
+Luckily, this is not critial, because CM3D2 save editor exists(just google it). Canvert the save file to .json, remove all references to added categoris (they are right after ones of seieki_ashi), and convert it back.
 
-seieki_ashi - seieki_ashi
+The patcher adds new menu categories and model slots, to extend maid customization.
 
-seieki_face - seieki_face
-
-seieki_hara - seieki_hara
-
-seieki_hip - seieki_hip
-
-seieki_naka - seieki_naka
-
-seieki_mune - seieki_mune
-
-seieki_ude - seieki_ude
-  
-Because these are intended to be general purpose categories, the provided del menus also have support for tattoo and moles.
-You can find more info on supported layers in the menu files themeselves.
-
-There are two basic mods to support the patcher, so the unlocked categories won't be entirely empty.
-The mods are: 
-  Free color nail and toenails both with versions to use any of available color sets. The nails can be found in S_ASshi and toenails in S_Face.
-   My toon skin texture. Can be found in S_Hara.
+Lies of added categories and associated models slots:
+  Head customization:
+    EYE2(folder_eye2, eye2) - none
+    MAKEUP1(makeup1) - none
+    MAKEUP2(makeup2) - none
+    
+    The EYE2 (eye2, folder_eye2) is the same as normal eye categories(eye, folder_eye) and is intednded for maing maid with eye heterochromia. The initial rrelease includes all eye menus from base game ported to it, and they affect right eye only. Mugen versions use HAIR color. 
+    MAKEUP1 and 2  are inteded for makeup and facial tatoo mods. Release only includes del menus.
+    
+   Body:
+    TATtOO2(acctatoo2) - none
+    TATTOO3(acctatoo3) - none
+    NAILS(nails) - nails
+    TOENAILS(toenails) - nails
+    SKINTOON(skintoon) - none
+    
+    TATTOO2 and 3, as the name suggest, are additional slots for tatoos. Release include tattoos ported from base game.
+    Nails and toenails, are well for nails and toenails mods. Release includes free color nails and toenails that can be colored with each available colorset.
+    SKINTTOON is intede for skintoon mods(duh). Include my bilenear toon and menu to restore default skintoon.
+    
+   Clothing:
+    GENERAL1 (general1) - general1a,general1b
+    GENERAL2 (general2) - general2a,general2b
+    GENERAL3 (general3) - general3a,general3b
+    GENERAL4 (general4) - general4a,general4b
+    GENERAL5 (general5) - general5a,general5b
+    GENERAL6 (general6) - general6a,general6b
+    GENERAL7 (general7) - general7a,general7b
+    
+    General purpose categories. Current release only contains del menus and modified phot_undressing_list.nei for photo mode.
+    
 
 Support by existing plugins:
-At the time of release, only AlwaysColorChangeEX supports unlocked categories.
-The readme may or may not be updated to reflect if support by other plugins was implemented.
+none at the time of release
