@@ -103,25 +103,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
             mpn.Fields.Add(fieldgen("general6", 102, mpn));
             mpn.Fields.Add(fieldgen("general7", 103 , mpn));
 
-            // this is rather unnecessary, as it's possible to use existing MPN of diffferent type, but it's less headache this way.
-            TypeDefinition EMenuPartsType = sceneEditInfo.NestedTypes.First(t => t.Name == "EMenuPartsType");
-
-            EMenuPartsType.Fields.Add(fieldgen("folder_eye2", 50, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("eye2", 51, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("makeup1", 52, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("makeup2", 53, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("acctatoo2", 54, mpn));
-            EMenuPartsType.Fields.Add(fieldgen("acctatoo3", 55, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("nails", 56, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("toenails", 57, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("skintoon", 58, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general1", 59, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general2", 60, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general3", 61, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general4", 62, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general5", 63, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general6", 64, EMenuPartsType));
-            EMenuPartsType.Fields.Add(fieldgen("general7", 65, EMenuPartsType));
+            
 
             // expand PresetSetp reads
 
@@ -148,6 +130,25 @@ namespace CM3D2.CategoryUnlocker.Patcher
 
             MethodDefinition SE_cctor = sceneEditInfo.GetMethod(".cctor");
             SE_cctor.InjectWith(loadCustom, -1);
+            // this is rather unnecessary, as it's possible to use existing MPN of diffferent type, but it's less headache this way.
+            TypeDefinition EMenuPartsType = sceneEditInfo.NestedTypes.First(t => t.Name == "EMenuPartsType");
+
+            EMenuPartsType.Fields.Add(fieldgen("folder_eye2", 50, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("eye2", 51, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("makeup1", 52, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("makeup2", 53, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("acctatoo2", 54, mpn));
+            EMenuPartsType.Fields.Add(fieldgen("acctatoo3", 55, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("nails", 56, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("toenails", 57, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("skintoon", 58, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general1", 59, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general2", 60, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general3", 61, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general4", 62, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general5", 63, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general6", 64, EMenuPartsType));
+            EMenuPartsType.Fields.Add(fieldgen("general7", 65, EMenuPartsType));
         }
      }
 }
