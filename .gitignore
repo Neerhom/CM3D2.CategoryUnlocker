@@ -6,6 +6,8 @@ Build/*
 Libs/*.dll
 Libs/*.exe
 
+!Libs/Assembly-CSharp.dll
+
 # User-specific files
 *.suo
 *.user
