@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CM3D2.CategoryUnlocker.Hook", "CM3D2.CategoryUnlocker.Hook\CM3D2.CategoryUnlocker.Hook.csproj", "{BF8A680D-D169-40DF-BF4F-DBA12CF91CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CM3D2.CategoryUnlocker.Patcher", "CM3D2.CategoryUnlocker.Patcher\CM3D2.CategoryUnlocker.Patcher.csproj", "{9F80D935-BE55-4D01-925A-554C3CA82243}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF8A680D-D169-40DF-BF4F-DBA12CF91CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8A680D-D169-40DF-BF4F-DBA12CF91CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8A680D-D169-40DF-BF4F-DBA12CF91CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8A680D-D169-40DF-BF4F-DBA12CF91CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F80D935-BE55-4D01-925A-554C3CA82243}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F80D935-BE55-4D01-925A-554C3CA82243}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F80D935-BE55-4D01-925A-554C3CA82243}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F80D935-BE55-4D01-925A-554C3CA82243}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86D66DF3-A235-412B-8213-6230E2EAF6DE}
+	EndGlobalSection
+EndGlobal
