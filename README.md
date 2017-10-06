@@ -29,7 +29,7 @@ TATTOO3(acctatoo3) - none
 
 NAILS(nails) - nails
 
-TOENAILS(toenails) - nails
+TOENAILS(toenails) - toenails
 
 SKINTOON(skintoon) - none
     
