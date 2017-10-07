@@ -6,6 +6,9 @@ Sybaris Patcher that adds new menu categories and model slots.
 In the unlikely even of this patcher becoming incompatible with the game or one wants to uninstall, ALL savefiles saved with this patcher active will be trated by the base game as invalid! 
 Luckily, this is not critial, because CM3D2 save editor exists(just google it). Canvert the save file to .json, remove all references to added categoris (they are right after ones of seieki_ashi), and convert it back.
 
+Do note, that updates to edit mode brought by COM3D2 will break this patcher, as such this would mean you'd have to restore your save! It is also likely, that presets saved with this patcher active are likely to become either buggy or incompatible!
+
+
 The patcher adds new menu categories and model slots, to extend maid customization.
 
 List of added categories and associated models slots:
@@ -23,7 +26,7 @@ The EYE2 (eye2, folder_eye2) is the same as normal eye categories(eye, folder_ey
 MAKEUP1 and 2  are inteded for makeup and facial tatoo mods. Release only includes del menus.
 
 Body:
-TATtOO2(acctatoo2) - none
+TATTOO2(acctatoo2) - none
 
 TATTOO3(acctatoo3) - none
 
