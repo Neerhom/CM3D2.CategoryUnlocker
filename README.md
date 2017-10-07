@@ -1,10 +1,10 @@
-# CM3D2.CategoryUnlocker
+CM3D2.CategoryUnlocker
 Sybaris Patcher that adds new menu categories and model slots.
 
 
 !!!!!!!!!WARNING!!!!!!!!!!
-In the unlikely even of this patcher becoming incompatible with the game or one wants to uninstall, ALL savefiles saved with this patcher active will be trated by the base game as invalid! 
-Luckily, this is not critial, because CM3D2 save editor exists(just google it). Canvert the save file to .json, remove all references to added categoris (they are right after ones of seieki_ashi), and convert it back.
+In the unlikely even of this patcher becoming incompatible with the game or one wants to uninstall, ALL savefiles saved with this patcher active will be treated by the base game as invalid!
+Luckily, this is not critical, because CM3D2 save editor exists(just google it). Convert the save file to .json, remove all references to added categoris (they are right after ones of seieki_ashi), and convert it back.
 
 Do note, that updates to edit mode brought by COM3D2 will break this patcher, as such this would mean you'd have to restore your save! It is also likely, that presets saved with this patcher active are likely to become either buggy or incompatible!
 
@@ -21,9 +21,9 @@ MAKEUP1(makeup1) - none
 
 MAKEUP2(makeup2) - none
 
-The EYE2 (eye2, folder_eye2) is the same as normal eye categories(eye, folder_eye) and is intednded for maing maid with eye heterochromia. The initial rrelease includes all eye menus from base game ported to it, and they affect right eye only. Mugen versions use HAIR color. 
+The EYE2 (eye2, folder_eye2) is the same as normal eye categories(eye, folder_eye) and is intended for making maid with eye heterochromia. The initial release includes all eye menus from base game ported to it, and they affect right eye only. Mugen versions use HAIR color.
 
-MAKEUP1 and 2  are inteded for makeup and facial tatoo mods. Release only includes del menus.
+MAKEUP1 and 2  are intended for makeup and facial tattoo mods. Release only includes del menus.
 
 Body:
 TATTOO2(acctatoo2) - none
@@ -39,7 +39,7 @@ SKINTOON(skintoon) - none
 TATTOO2 and 3, as the name suggest, are additional slots for tatoos. Release include tattoos ported from base game.
 Nails and toenails, are well for nails and toenails mods. Release includes free color nails and toenails that can be colored with each available colorset.
 
-SKINTTOON is inteded for skintoon mods(duh). Includes my bilenear toon and menu to restore default skintoon.
+SKINTOON is intended for skintoon mods(duh). Includes my bilinear toon and menu to restore default skintoon.
 
 Clothing:
 GENERAL1 (general1) - general1a,general1b
