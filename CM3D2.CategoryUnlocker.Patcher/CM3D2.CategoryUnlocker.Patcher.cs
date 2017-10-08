@@ -4,7 +4,7 @@ using Mono.Cecil;
 using Mono.Cecil.Inject;
 using System.Linq;
 using Mono.Cecil.Cil;
-using System;
+
 
 
 
@@ -67,43 +67,23 @@ namespace CM3D2.CategoryUnlocker.Patcher
 
 
         // method for injecting MPN's to Maid.AllProcProp and Maid.AllPropcPropSeq
-        // the "targetmpn" is an integer value of NON first MPN processed in the loop
-        public static void allprocext (int targetmpn, int mpnN, MethodDefinition method, MethodReference getprop, FieldReference fieldref)
+       
+        public static void allprocext (int pos, int mpnN, MethodDefinition method, MethodReference getprop, FieldReference fieldref)
         {
+        
+                        method.Body.Instructions.Insert(pos, Instruction.Create(OpCodes.Call, getprop));
+                        method.Body.Instructions.Insert(pos, Instruction.Create(OpCodes.Ldc_I4, mpnN));
+                        method.Body.Instructions.Insert(pos, Instruction.Create(OpCodes.Ldarg_0));
+                        method.Body.Instructions.Insert(pos, Instruction.Create(OpCodes.Stfld, fieldref));
+                        method.Body.Instructions.Insert(pos, Instruction.Create(OpCodes.Ldc_I4_1));
             
-            for (int instn = 0; instn < method.Body.Instructions.Count<Instruction>(); instn++)
-            {
-
-                if (method.Body.Instructions[instn].OpCode == OpCodes.Ldc_I4_S &&
-                    Convert.ToInt32(method.Body.Instructions[instn].Operand) == targetmpn)
-                    {
-                        
-                        method.Body.Instructions.Insert(instn + 2, Instruction.Create(OpCodes.Call, getprop));
-                        method.Body.Instructions.Insert(instn + 2, Instruction.Create(OpCodes.Ldc_I4, mpnN));
-                        method.Body.Instructions.Insert(instn + 2, Instruction.Create(OpCodes.Ldarg_0));
-                        method.Body.Instructions.Insert(instn + 2, Instruction.Create(OpCodes.Stfld, fieldref));
-                        method.Body.Instructions.Insert(instn + 2, Instruction.Create(OpCodes.Ldc_I4_1));
-                        break;
-                    
-                }
-            }
         }
 
-        //method that generates filed(public, static, literal, valutetype) with "name" and "integer" value in specified typedefinition
-        private static FieldDefinition fieldgen(string name, int integer, TypeDefinition typedef)
-        {
-            FieldDefinition newfield = new FieldDefinition($"{name}",
-                            Mono.Cecil.FieldAttributes.Public | Mono.Cecil.FieldAttributes.Static |
-                            Mono.Cecil.FieldAttributes.Literal | Mono.Cecil.FieldAttributes.HasDefault,
-                            typedef)
-            {
-                Constant = integer };
-            return newfield;
-        }
+        
 
         //method that generates filed(public, static, literal, valutetype)
         // with "name" starting at "start" in specified typedefinition
-        private static void fieldgenv2 (string[] fieldnames, int start, TypeDefinition typedef)
+        private static void fieldgen (string[] fieldnames, int start, TypeDefinition typedef)
             {
             for (int i = 0; i < fieldnames.Length; i++)
             {
@@ -149,7 +129,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
             //remove "end" field
             tslotid.Fields.RemoveAt(59);
 
-            fieldgenv2(SlotID, 58, tslotid);
+            fieldgen(SlotID, 58, tslotid);
             //add "end" field back. not sure if there is a point in messing with end field, but i can't be bothered checking
             tslotid.Fields.Add(fieldgen("end", 74, tslotid));
 
@@ -161,7 +141,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
             MethodDefinition maidpropext = catmanager.GetMethod("maidpropext");
             CreateInitMaidPropList.InjectWith(maidpropext, flags: InjectFlags.ModifyReturn);
 
-            fieldgenv2(MPNarry, 88, mpn);
+            fieldgen(MPNarry, 88, mpn);
 
 
             //fix mpn update
@@ -174,22 +154,56 @@ namespace CM3D2.CategoryUnlocker.Patcher
             FieldReference boDutref = maidprop.Module.ImportReference(boDut);
 
             //extend loop within Maid.AllProcProp()
-            allprocext(37, 89, AllProcProp, getpropref, boDutref);
-            allprocext(36, 93, AllProcProp, getpropref, boDutref);
-            allprocext(36, 92, AllProcProp, getpropref, boDutref);
-            allprocext(36, 91, AllProcProp, getpropref, boDutref);
-            allprocext(36, 90, AllProcProp, getpropref, boDutref);
+
+            for (int instn = 0; instn < AllProcProp.Body.Instructions.Count<Instruction>(); instn++)
+            {
+                // 37 and 36 are NON first  MPN integers in else if conditions of for loop
+                if (AllProcProp.Body.Instructions[instn].OpCode == OpCodes.Ldc_I4_S &&
+                  (sbyte?)(AllProcProp.Body.Instructions[instn].Operand) == 37)
+                {
+                    int pos = instn +2;
+                    allprocext(pos, 89, AllProcProp, getpropref, boDutref);
+                                                            
+                }
+                 if (AllProcProp.Body.Instructions[instn].OpCode == OpCodes.Ldc_I4_S &&
+                   (sbyte?)AllProcProp.Body.Instructions[instn].Operand == 36)
+                {
+                    int pos = instn + 2;
+                    allprocext(pos, 93, AllProcProp, getpropref, boDutref);
+                    allprocext(pos, 92, AllProcProp, getpropref, boDutref);
+                    allprocext(pos, 91, AllProcProp, getpropref, boDutref);
+                    allprocext(pos, 90, AllProcProp, getpropref, boDutref);
+                    break;
+                }
+            }
 
 
 
             //extend loop within Maid.AllProcPropSeq()
             MethodDefinition AllProcPropSeq = maid.GetMethod("AllProcPropSeq");
-            allprocext(37, 89, AllProcPropSeq, getpropref, boDutref);
-            allprocext(36, 93, AllProcPropSeq, getpropref, boDutref);
-            allprocext(36, 92, AllProcPropSeq, getpropref, boDutref);
-            allprocext(36, 91, AllProcPropSeq, getpropref, boDutref);
-            allprocext(36, 90, AllProcPropSeq, getpropref, boDutref);
+            for (int instn = 0; instn < AllProcPropSeq.Body.Instructions.Count<Instruction>(); instn++)
+            {
+                // 37 and 36 are NON first  MPN integers in else if conditions of for loop
+                if (AllProcPropSeq.Body.Instructions[instn].OpCode == OpCodes.Ldc_I4_S &&
+                   (sbyte?)(AllProcPropSeq.Body.Instructions[instn].Operand) == 37)
+                {
+                    int pos = instn + 2;
+                    allprocext(pos, 89, AllProcPropSeq, getpropref, boDutref);
 
+                }
+                if (AllProcPropSeq.Body.Instructions[instn].OpCode == OpCodes.Ldc_I4_S &&
+                   (sbyte?)(AllProcPropSeq.Body.Instructions[instn].Operand) == 36)
+                {
+                    int pos = instn + 2;
+                    allprocext(pos, 93, AllProcPropSeq, getpropref, boDutref);
+                    allprocext(pos, 92, AllProcPropSeq, getpropref, boDutref);
+                    allprocext(pos, 91, AllProcPropSeq, getpropref, boDutref);
+                    allprocext(pos, 90, AllProcPropSeq, getpropref, boDutref);
+                    break;
+                }
+            }
+            
+          
 
             // expand PresetSetp reads
 
@@ -220,7 +234,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
             // extend EMenuPartsType
             // this is rather unnecessary, as it's possible to use existing MPN of diffferent type, but it's less headache this way.
             TypeDefinition EMenuPartsType = sceneEditInfo.NestedTypes.First(t => t.Name == "EMenuPartsType");
-            fieldgenv2(MPNarry,50, EMenuPartsType );
+            fieldgen(MPNarry,50, EMenuPartsType );
         }
      }
 }
