@@ -101,6 +101,18 @@ namespace CM3D2.CategoryUnlocker.Patcher
 
             }
         }
+        //method that generates filed(public, static, literal, valutetype) with "name" and "integer" value in specified typedefinition
+        private static FieldDefinition fieldgen2(string name, int integer, TypeDefinition typedef)
+        {
+            FieldDefinition newfield = new FieldDefinition($"{name}",
+                            Mono.Cecil.FieldAttributes.Public | Mono.Cecil.FieldAttributes.Static |
+                            Mono.Cecil.FieldAttributes.Literal | Mono.Cecil.FieldAttributes.HasDefault,
+                            typedef)
+            {
+                Constant = integer
+            };
+            return newfield;
+        }
 
         public static void Patch(AssemblyDefinition assembly)
         {
@@ -131,7 +143,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
 
             fieldgen(SlotID, 58, tslotid);
             //add "end" field back. not sure if there is a point in messing with end field, but i can't be bothered checking
-            tslotid.Fields.Add(fieldgen("end", 74, tslotid));
+            tslotid.Fields.Add(fieldgen2("end", 74, tslotid));
 
 
             // add MPN
