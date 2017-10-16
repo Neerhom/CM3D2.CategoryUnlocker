@@ -1,6 +1,10 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
+using Mono.Cecil;
+using Mono.Cecil.Inject;
+
 
 
 namespace CM3D2.CategoryUnlocker.Hook
@@ -238,7 +242,7 @@ namespace CM3D2.CategoryUnlocker.Hook
 
         "end"
   };
-        // method for adding new MPN. this method requires pre-patched Assembly-Charp.dll to work
+        // method for adding new MPN's to scene editinfo. this method requires pre-patched Assembly-Charp.dll to work
         public static void loadcustomcats()
         {
 
@@ -453,7 +457,7 @@ namespace CM3D2.CategoryUnlocker.Hook
                 MPN.skintoon,
             new SceneEditInfo.CCateNameType
             {
-                m_nIdx = 28,
+                m_nIdx = 29,
                 m_eType = SceneEditInfo.CCateNameType.EType.Item,
                 m_eMenuCate = SceneEditInfo.EMenuCategory.身体,
                 m_ePartsType = SceneEditInfo.EMenuPartsType.skintoon,
@@ -465,6 +469,31 @@ namespace CM3D2.CategoryUnlocker.Hook
             SceneEditInfo.m_dicPartsTypeCamera.Add(
 
             MPN.skintoon,
+            new SceneEditInfo.CamToBone
+            {
+                bone = string.Empty,
+                angle = new Vector2(-180f, 9.3f),
+                distance = 2.89f
+            }
+            );
+
+            //body
+            SceneEditInfo.m_dicPartsTypePair.Add(
+                 MPN.body,
+             new SceneEditInfo.CCateNameType
+             {
+                 m_nIdx = 30,
+                 m_eType = SceneEditInfo.CCateNameType.EType.Item,
+                 m_eMenuCate = SceneEditInfo.EMenuCategory.身体,
+                 m_ePartsType = SceneEditInfo.EMenuPartsType.body,
+                 m_strBtnPartsTypeName = "BODY"
+             }
+             );
+
+            SceneEditInfo.m_dicPartsTypeWearMode.Add(MPN.body, TBody.MaskMode.Nude);
+            SceneEditInfo.m_dicPartsTypeCamera.Add(
+
+            MPN.body,
             new SceneEditInfo.CamToBone
             {
                 bone = string.Empty,
@@ -735,11 +764,12 @@ namespace CM3D2.CategoryUnlocker.Hook
             CM3.dicDelItem[MPN.acctatoo2] = "_i_acctatoo2_del.menu";
             CM3.dicDelItem[MPN.acctatoo3] = "_i_acctatoo3_del.menu";
             CM3.dicDelItem[MPN.folder_eye2] = "_I_folder_eye2_del.menu";
-                                    
+            CM3.dicDelItem[MPN.body] = "body001_i_.menu";
+
         }
 
         // add more MPN's to preset set method
-        public static void ExtSet(global::Maid f_maid, global::CharacterMgr.Preset f_prest)
+        public static void ExtSet(Maid f_maid, CharacterMgr.Preset f_prest)
         {
             global::MaidProp[] array;
 
@@ -912,6 +942,84 @@ namespace CM3D2.CategoryUnlocker.Hook
         }
 
 
+        // method for injecting MPN's to Maid.AllProcProp and Maid.AllPropcPropSeq
+        public static void allprocext(Maid maid, ref MaidProp maidProp)
+        {
+        if    (maidProp.type == 3 )  {
+                if (maidProp.idx == 25)
+                {
+                    maid.GetProp(MPN.eye2).boDut = true;
+
+                }
+                else if (maidProp.idx == 31)
+                {
+
+                    maid.GetProp(MPN.makeup1).boDut = true;
+                    maid.GetProp(MPN.makeup2).boDut = true;
+                    maid.GetProp(MPN.acctatoo2).boDut = true;
+                    maid.GetProp(MPN.acctatoo3).boDut = true;
+                    maid.GetProp(MPN.acctatoo2).boDut = true;
+                    maid.GetProp(MPN.skintoon).boDut = true;
+
+                }
+                else if (maidProp.idx == 23)
+                {
+                    maid.GetProp(MPN.head).boDut = true;
+                    maid.GetProp(MPN.hairf).boDut = true;
+                    maid.GetProp(MPN.hairr).boDut = true;
+                    maid.GetProp(MPN.hairt).boDut = true;
+                    maid.GetProp(MPN.hairs).boDut = true;
+                    maid.GetProp(MPN.wear).boDut = true;
+                    maid.GetProp(MPN.skirt).boDut = true;
+                    maid.GetProp(MPN.mizugi).boDut = true;
+                    maid.GetProp(MPN.bra).boDut = true;
+                    maid.GetProp(MPN.panz).boDut = true;
+                    maid.GetProp(MPN.stkg).boDut = true;
+                    maid.GetProp(MPN.shoes).boDut = true;
+                    maid.GetProp(MPN.headset).boDut = true;
+                    maid.GetProp(MPN.glove).boDut = true;
+                    maid.GetProp(MPN.acchead).boDut = true;
+                    maid.GetProp(MPN.hairaho).boDut = true;
+                    maid.GetProp(MPN.accha).boDut = true;
+                    maid.GetProp(MPN.acchana).boDut = true;
+                    maid.GetProp(MPN.acckamisub).boDut = true;
+                    maid.GetProp(MPN.acckami).boDut = true;
+                    maid.GetProp(MPN.accmimi).boDut = true;
+                    maid.GetProp(MPN.accnip).boDut = true;
+                    maid.GetProp(MPN.acckubi).boDut = true;
+                    maid.GetProp(MPN.acckubiwa).boDut = true;
+                    maid.GetProp(MPN.accheso).boDut = true;
+                    maid.GetProp(MPN.accude).boDut = true;
+                    maid.GetProp(MPN.accashi).boDut = true;
+                    maid.GetProp(MPN.accsenaka).boDut = true;
+                    maid.GetProp(MPN.accshippo).boDut = true;
+                    maid.GetProp(MPN.accanl).boDut = true;
+                    maid.GetProp(MPN.accvag).boDut = true;
+                    maid.GetProp(MPN.megane).boDut = true;
+                    maid.GetProp(MPN.accxxx).boDut = true;
+                    maid.GetProp(MPN.handitem).boDut = true;
+                    maid.GetProp(MPN.acchat).boDut = true;
+                    maid.GetProp(MPN.underhair).boDut = true;
+                    maid.GetProp(MPN.chikubi).boDut = true;
+                    maid.GetProp(MPN.chikubicolor).boDut = true;
+                    maid.GetProp(MPN.moza).boDut = true;
+                    maid.GetProp(MPN.onepiece).boDut = true;
+                    maid.GetProp(MPN.folder_underhair).boDut = true;
+                    maid.GetProp(MPN.eye2).boDut = true;
+                    maid.GetProp(MPN.nails).boDut = true;
+                    maid.GetProp(MPN.toenails).boDut = true;
+                    maid.GetProp(MPN.skintoon).boDut = true;
+                    maid.GetProp(MPN.general1).boDut = true;
+                    maid.GetProp(MPN.general2).boDut = true;
+                    maid.GetProp(MPN.general3).boDut = true;
+                    maid.GetProp(MPN.general4).boDut = true;
+                    maid.GetProp(MPN.general5).boDut = true;
+                    maid.GetProp(MPN.general6).boDut = true;
+                    maid.GetProp(MPN.general7).boDut = true;
+                }
+
+           }
+        }
 
 
     }
