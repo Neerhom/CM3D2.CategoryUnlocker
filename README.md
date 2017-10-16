@@ -58,7 +58,7 @@ GENERAL7 (general7) - general7a,general7b
     
 General purpose categories. Current release only contains del menus and modified phot_undressing_list.nei for photo mode.
     
-And just because i can, the patcher also unlocks BODy category for Edit Screen. While this is somewhat redundant, because Edit Menu Utility Exist, but EMU require body menu to follow specific naming convention, and this does not.
+And just because i can, the patcher also unlocks BODY category for Edit Screen. While this is somewhat redundant, because Edit Menu Utility Exist, but EMU require body menu to follow specific naming convention, and this does not.
 Confirmed to not have any conflicts with EMU. Mind you, unlike EMU this won't restore maid's last animation!
 
 Support by existing plugins:
