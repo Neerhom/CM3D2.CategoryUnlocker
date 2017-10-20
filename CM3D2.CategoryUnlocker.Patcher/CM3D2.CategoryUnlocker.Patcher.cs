@@ -145,51 +145,51 @@ namespace CM3D2.CategoryUnlocker.Patcher
 
             //fix mpn update
             MethodDefinition AllProcProp = maid.GetMethod("AllProcProp");
-           
-            MethodDefinition allprocext = catmanager.GetMethod("allprocext");
+            MethodDefinition AllProcExt = catmanager.GetMethod("AllProcExt");
+            MethodDefinition AllProcSeqExt = catmanager.GetMethod("AllProcSeqExt");
             MethodDefinition AllProcPropSeq = maid.GetMethod("AllProcPropSeq");
             
             //extend loop within Maid.AllProcProp()
             int counter = 0;
-            for (int instn = 0; instn < AllProcProp.Body.Instructions.Count; instn++)
-            {
-
-
-                if (AllProcProp.Body.Instructions[instn].OpCode == OpCodes.Add)
-                { 
-                    
-                    {
-                        
-                        AllProcProp.InjectWith(allprocext, codeOffset: instn-2, flags: InjectFlags.PassInvokingInstance | InjectFlags.PassLocals , localsID: new[] { 2 });
-                        break;
-                    }
-                }
-                
-
-            }
+          for (int instn = 0; instn < AllProcProp.Body.Instructions.Count; instn++)
+          {
+   
+   
+              if (AllProcProp.Body.Instructions[instn].OpCode == OpCodes.Add)
+              { 
+                  
+                  {
+                      
+                      AllProcProp.InjectWith(AllProcExt, codeOffset: instn-2, flags: InjectFlags.PassInvokingInstance | InjectFlags.PassLocals , localsID: new[] { 2 });
+                      break;
+                  }
+              }
+              
+   
+          }
             //extend loop within Maid.AllProcPropSeq()
            
             
-            for (int instn = 0; instn < AllProcPropSeq.Body.Instructions.Count; instn++)
-            {
-                             
-                if (AllProcPropSeq.Body.Instructions[instn].OpCode == OpCodes.Br)
-                {
-                    counter+= 1;
-                    
-                         if (counter == 5)
-                    {
-
-                        AllProcPropSeq.InjectWith(allprocext, codeOffset: instn, flags: InjectFlags.PassInvokingInstance | InjectFlags.PassLocals,
-                            localsID: new[] { 0 });
-                        break;
-
-                    }
-
-                }
-
-
-            }
+          for (int instn = 0; instn < AllProcPropSeq.Body.Instructions.Count; instn++)
+          {
+                           
+              if (AllProcPropSeq.Body.Instructions[instn].OpCode == OpCodes.Br)
+              {
+                  counter+= 1;
+                  
+                       if (counter == 5)
+                  {
+    
+                      AllProcPropSeq.InjectWith(AllProcSeqExt, codeOffset: instn, flags: InjectFlags.PassInvokingInstance | InjectFlags.PassLocals,
+                          localsID: new[] { 0 });
+                      break;
+    
+                  }
+    
+              }
+    
+    
+          }
        
 
          
