@@ -940,12 +940,33 @@ namespace CM3D2.CategoryUnlocker.Hook
         };
             return result != null;
         }
+        // method for injecting MPN's to Maid.AllProcProp 
+        public static void AllProcExt(Maid maid, ref MaidProp maidProp)
+        {
 
+            if (maidProp.idx == 25)
+            {
+                maid.GetProp(MPN.eye2).boDut = true;
+
+            }
+            else if (maidProp.idx == 31)
+            {
+
+                maid.GetProp(MPN.makeup1).boDut = true;
+                maid.GetProp(MPN.makeup2).boDut = true;
+                maid.GetProp(MPN.acctatoo2).boDut = true;
+                maid.GetProp(MPN.acctatoo3).boDut = true;
+                maid.GetProp(MPN.acctatoo2).boDut = true;
+                maid.GetProp(MPN.skintoon).boDut = true;
+
+            }
+        }
 
         // method for injecting MPN's to Maid.AllProcProp and Maid.AllPropcPropSeq
-        public static void allprocext(Maid maid, ref MaidProp maidProp)
+        public static void AllProcSeqExt(Maid maid, ref MaidProp maidProp)
         {
-        if    (maidProp.type == 3 )  {
+            if (maidProp.type == 3)
+            {
                 if (maidProp.idx == 25)
                 {
                     maid.GetProp(MPN.eye2).boDut = true;
@@ -997,7 +1018,6 @@ namespace CM3D2.CategoryUnlocker.Hook
                     maid.GetProp(MPN.accvag).boDut = true;
                     maid.GetProp(MPN.megane).boDut = true;
                     maid.GetProp(MPN.accxxx).boDut = true;
-                    maid.GetProp(MPN.handitem).boDut = true;
                     maid.GetProp(MPN.acchat).boDut = true;
                     maid.GetProp(MPN.underhair).boDut = true;
                     maid.GetProp(MPN.chikubi).boDut = true;
@@ -1018,9 +1038,9 @@ namespace CM3D2.CategoryUnlocker.Hook
                     maid.GetProp(MPN.general7).boDut = true;
                 }
 
-           }
-        }
+            }
 
+        }
 
     }
 }
