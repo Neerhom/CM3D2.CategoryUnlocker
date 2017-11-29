@@ -6,8 +6,6 @@ Sybaris Patcher that adds new menu categories and model slots.
 In the unlikely even of this patcher becoming incompatible with the game or one wants to uninstall, ALL savefiles saved with this patcher active will be treated by the base game as invalid!
 Luckily, this is not critical, because CM3D2 save editor exists(just google it). Convert the save file to .json, remove all references to added categoris (they are right after ones of seieki_ashi), and convert it back.
 
-Do note, that updates to edit mode brought by COM3D2 will break this patcher, as such this would mean you'd have to restore your save! It is also likely, that presets saved with this patcher active are likely to become either buggy or incompatible!
-
 
 The patcher adds new menu categories and model slots, to extend maid customization.
 
@@ -57,7 +55,14 @@ GENERAL6 (general6) - general6a,general6b
 GENERAL7 (general7) - general7a,general7b
     
 General purpose categories. Current release only contains del menus and modified phot_undressing_list.nei for photo mode.
-    
+
+Accessories:
+
+EARS - ears
+HORNS - horns
+
+As the names suggest, these category are added to make ears and horns compatible with hats, without sacrificing any other category. The relesease includes ears and horns ported from base game.
+
 And just because i can, the patcher also unlocks BODY category for Edit Screen. While this is somewhat redundant, because Edit Menu Utility Exist, but EMU require body menu to follow specific naming convention, and this does not.
 Confirmed to not have any conflicts with EMU. Mind you, unlike EMU this won't restore maid's last animation!
 
