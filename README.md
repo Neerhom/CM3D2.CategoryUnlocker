@@ -19,7 +19,7 @@ MAKEUP1(makeup1) - none
 
 MAKEUP2(makeup2) - none
 
-The EYE2 (eye2, folder_eye2) is the same as normal eye categories(eye, folder_eye) and is intended for making maid with eye heterochromia. The initial release includes all eye menus from base game ported to it, and they affect right eye only. Mugen versions use HAIR color.
+The EYE2 (eye2, folder_eye2) is the same as normal eye categories(eye, folder_eye) and is intended for making maid with eye heterochromia. The initial release includes all eye menus from base game ported to it, and they affect right eye only. Mugen versions use EYE_R color.
 
 MAKEUP1 and 2  are intended for makeup and facial tattoo mods. Release only includes del menus.
 
