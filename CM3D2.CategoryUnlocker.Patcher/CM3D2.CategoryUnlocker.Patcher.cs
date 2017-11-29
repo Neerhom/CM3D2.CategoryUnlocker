@@ -40,7 +40,9 @@ namespace CM3D2.CategoryUnlocker.Patcher
             "general4",
             "general5",
             "general6",
-            "general7"
+            "general7",
+            "ears",
+            "horns"
 
             };
         // array of filleds that are to be appended to enum SlotID 
@@ -61,7 +63,9 @@ namespace CM3D2.CategoryUnlocker.Patcher
             "general6a",
             "general6b",
             "general7a",
-            "general7b"
+            "general7b",
+            "ears",
+            "horns"
 
             };
 
@@ -130,7 +134,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
 
             fieldgen(SlotID, 58, tslotid);
             //add "end" field back. not sure if there is a point in messing with end field, but i can't be bothered checking
-            fieldgen2("end", 74, tslotid);
+            fieldgen2("end", 76, tslotid);
 
 
             // add MPN
@@ -225,7 +229,7 @@ namespace CM3D2.CategoryUnlocker.Patcher
             fieldgen(MPNarry,50, EMenuPartsType );
 
             // add body to EMenuPartsType
-            fieldgen2("body", 66, EMenuPartsType);
+            fieldgen2("body", 68, EMenuPartsType);
         }
      }
 }
