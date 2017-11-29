@@ -239,6 +239,12 @@ namespace CM3D2.CategoryUnlocker.Hook
      "general7b",
      "_ROOT_",
      "Jyouhanshin",
+     "ears",
+     "Bip01 Head",
+     "Jyouhanshin",
+     "horns",
+     "Bip01 Head",
+     "Jyouhanshin",
 
         "end"
   };
@@ -742,6 +748,72 @@ namespace CM3D2.CategoryUnlocker.Hook
 
                 );
 
+            //ears
+            SceneEditInfo.m_dicPartsTypePair.Add
+                (
+
+               MPN.ears,
+           new SceneEditInfo.CCateNameType
+           {
+               m_nIdx = 16,
+               m_eType = SceneEditInfo.CCateNameType.EType.Item,
+               m_eMenuCate = SceneEditInfo.EMenuCategory.アクセサリ,
+               m_ePartsType = SceneEditInfo.EMenuPartsType.ears,
+
+               m_strBtnPartsTypeName = "EARS"
+           }
+           );
+
+            SceneEditInfo.m_dicPartsTypeWearMode.Add(MPN.ears,
+            TBody.MaskMode.None);
+
+
+            SceneEditInfo.m_dicPartsTypeCamera.Add
+            (
+
+                MPN.ears,
+                new SceneEditInfo.CamToBone
+                {
+                    bone = "Bip01 Head",
+                    angle = new Vector2(-180f, 4.7f),
+                    distance = 1f
+                }
+
+                );
+
+              //horns
+            SceneEditInfo.m_dicPartsTypePair.Add
+                (
+
+               MPN.horns,
+           new SceneEditInfo.CCateNameType
+           {
+               m_nIdx = 17,
+               m_eType = SceneEditInfo.CCateNameType.EType.Item,
+               m_eMenuCate = SceneEditInfo.EMenuCategory.アクセサリ,
+               m_ePartsType = SceneEditInfo.EMenuPartsType.horns,
+
+               m_strBtnPartsTypeName = "HORNS"
+           }
+           );
+
+            SceneEditInfo.m_dicPartsTypeWearMode.Add(MPN.horns,
+            TBody.MaskMode.None);
+
+
+            SceneEditInfo.m_dicPartsTypeCamera.Add
+            (
+
+                MPN.horns,
+                new SceneEditInfo.CamToBone
+                {
+                    bone = "Bip01 Head",
+                    angle = new Vector2(-180f, 4.7f),
+                    distance = 1f
+                }
+
+                );
+
 
         }
 
@@ -766,6 +838,9 @@ namespace CM3D2.CategoryUnlocker.Hook
             CM3.dicDelItem[MPN.folder_eye2] = "_I_folder_eye2_del.menu";
             CM3.dicDelItem[MPN.body] = "body001_i_.menu";
 
+            CM3.dicDelItem[MPN.ears] = "_I_ears_del.menu";
+            CM3.dicDelItem[MPN.horns] = "_I_horns_del.menu";
+
         }
 
         // add more MPN's to preset set method
@@ -782,7 +857,7 @@ namespace CM3D2.CategoryUnlocker.Hook
           else  if (f_prest.ePreType == global::CharacterMgr.PresetType.Wear || f_prest.ePreType == global::CharacterMgr.PresetType.All)
             {
                 array = (from mp in f_prest.listMprop
-                         where 97 <= mp.idx && mp.idx <= 103
+                         where 97 <= mp.idx && mp.idx <= 105
                          select mp).ToArray<global::MaidProp>();
             }
 
@@ -936,6 +1011,8 @@ namespace CM3D2.CategoryUnlocker.Hook
             Maid.CreateProp(string.Empty, MPN.general5, 3),
             Maid.CreateProp(string.Empty, MPN.general6, 3),
             Maid.CreateProp(string.Empty, MPN.general7, 3),
+            Maid.CreateProp(string.Empty, MPN.ears, 3),
+            Maid.CreateProp(string.Empty, MPN.horns, 3),
 
         };
             return result != null;
@@ -1036,6 +1113,8 @@ namespace CM3D2.CategoryUnlocker.Hook
                     maid.GetProp(MPN.general5).boDut = true;
                     maid.GetProp(MPN.general6).boDut = true;
                     maid.GetProp(MPN.general7).boDut = true;
+                    maid.GetProp(MPN.ears).boDut = true;
+                    maid.GetProp(MPN.horns).boDut = true;
                 }
 
             }
