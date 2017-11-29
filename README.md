@@ -59,6 +59,7 @@ General purpose categories. Current release only contains del menus and modified
 Accessories:
 
 EARS - ears
+
 HORNS - horns
 
 As the names suggest, these category are added to make ears and horns compatible with hats, without sacrificing any other category. The relesease includes ears and horns ported from base game.
