@@ -65,7 +65,9 @@ HORNS - horns
 As the names suggest, these category are added to make ears and horns compatible with hats, without sacrificing any other category. The relesease includes ears and horns ported from base game.
 
 And just because i can, the patcher also unlocks BODY category for Edit Screen. While this is somewhat redundant, because Edit Menu Utility Exist, but EMU require body menu to follow specific naming convention, and this does not.
-Confirmed to not have any conflicts with EMU. Mind you, unlike EMU this won't restore maid's last animation!
+Confirmed to not have any conflicts with EMU plugin. Mind you, unlike EMU this won't restore maid's last animation!
+
+There appears to be a minor conflict with EditMenuUtility patcher, which can result in new categories not appearing in edit screen. The conflict can be solved by deleting EditMenuUtility.xml from UnityInjector/Config
 
 Support by existing plugins:
 none at the time of release
