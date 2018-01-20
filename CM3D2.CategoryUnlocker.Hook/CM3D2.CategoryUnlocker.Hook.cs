@@ -868,22 +868,22 @@ namespace CM3D2.CategoryUnlocker.Hook
             {
                 for (int i = 0; i < array.Length; i++)
                 {
-                    global::MaidProp maidProp = array[i];
+                    MaidProp maidProp = array[i];
                     if (maidProp.idx != 23)
                     {
-                        f_maid.SetProp((global::MPN)maidProp.idx, maidProp.value, false);
+                        f_maid.SetProp((MPN)maidProp.idx, maidProp.value, false);
                         if (string.IsNullOrEmpty(maidProp.strFileName))
                         {
                             string strFileName = maidProp.strFileName;
-                            if (global::CM3.dicDelItem.TryGetValue((global::MPN)maidProp.idx, out strFileName))
+                            if (CM3.dicDelItem.TryGetValue((MPN)maidProp.idx, out strFileName))
                             {
                                 maidProp.strFileName = strFileName;
                             }
                         }
-                        f_maid.SetProp((global::MPN)maidProp.idx, maidProp.strFileName, 0, false);
-                        if (global::CharacterMgr.EditModeLookHaveItem && !global::GameMain.Instance.CharacterMgr.GetPlayerParam().status.IsHaveItem(maidProp.strFileName))
+                        f_maid.SetProp((MPN)maidProp.idx, maidProp.strFileName, 0, false, false);
+                        if (CharacterMgr.EditModeLookHaveItem && !GameMain.Instance.CharacterMgr.GetPlayerParam().status.IsHaveItem(maidProp.strFileName))
                         {
-                            f_maid.DelProp((global::MPN)maidProp.idx, false);
+                            f_maid.DelProp((MPN)maidProp.idx, false);
                         }
                     }
                 }
