@@ -854,7 +854,7 @@ namespace CM3D2.CategoryUnlocker.Hook
                          where 88 <= mp.idx && mp.idx <= 96
                          select mp).ToArray<global::MaidProp>();
             }
-          else  if (f_prest.ePreType == global::CharacterMgr.PresetType.Wear || f_prest.ePreType == global::CharacterMgr.PresetType.All)
+            if (f_prest.ePreType == global::CharacterMgr.PresetType.Wear || f_prest.ePreType == global::CharacterMgr.PresetType.All)
             {
                 array = (from mp in f_prest.listMprop
                          where 97 <= mp.idx && mp.idx <= 105
