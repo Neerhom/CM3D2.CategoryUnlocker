@@ -4,7 +4,7 @@ Sybaris Patcher that adds new menu categories and model slots.
 
 !!!!!!!!!WARNING!!!!!!!!!!
 In the unlikely even of this patcher becoming incompatible with the game or one wants to uninstall, ALL savefiles saved with this patcher active will be treated by the base game as invalid!
-Luckily, this is not critical, because CM3D2 save editor exists(just google it). Convert the save file to .json, remove all references to added categoris (they are right after ones of seieki_ashi), and convert it back.
+IF you wish to restore you save file to pre Unlocker state see this guide: https://github.com/Neerhom/CM3D2.CategoryUnlocker/wiki/Restoring-save-file
 
 
 The patcher adds new menu categories and model slots, to extend maid customization.
@@ -66,6 +66,8 @@ As the names suggest, these category are added to make ears and horns compatible
 
 And just because i can, the patcher also unlocks BODY category for Edit Screen. While this is somewhat redundant, because Edit Menu Utility Exist, but EMU require body menu to follow specific naming convention, and this does not.
 Confirmed to not have any conflicts with EMU plugin. Mind you, unlike EMU this won't restore maid's last animation!
+
+For more details regarding new categories and how to create mods for them see: https://github.com/Neerhom/CM3D2.CategoryUnlocker/wiki/Creating-mods-for-CategoryUnlocker
 
 There appears to be a minor conflict with EditMenuUtility patcher, which can result in new categories not appearing in edit screen. The conflict can be solved by deleting EditMenuUtility.xml from UnityInjector/Config
 
