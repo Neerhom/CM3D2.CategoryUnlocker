@@ -837,6 +837,7 @@ namespace CM3D2.CategoryUnlocker.Hook
             CM3.dicDelItem[MPN.acctatoo3] = "_i_acctatoo3_del.menu";
             CM3.dicDelItem[MPN.folder_eye2] = "_I_folder_eye2_del.menu";
             CM3.dicDelItem[MPN.body] = "body001_i_.menu";
+            CM3.dicDelItem[MPN.body] = "_i_skintoon_del.menu";
 
             CM3.dicDelItem[MPN.ears] = "_I_ears_del.menu";
             CM3.dicDelItem[MPN.horns] = "_I_horns_del.menu";
