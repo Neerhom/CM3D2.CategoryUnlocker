@@ -849,16 +849,23 @@ namespace CM3D2.CategoryUnlocker.Hook
         {
             global::MaidProp[] array;
 
-            if (f_prest.ePreType == global::CharacterMgr.PresetType.Body || f_prest.ePreType == global::CharacterMgr.PresetType.All)
+            if (f_prest.ePreType == global::CharacterMgr.PresetType.Body )
             {
                 array = (from mp in f_prest.listMprop
                          where 88 <= mp.idx && mp.idx <= 96
                          select mp).ToArray<global::MaidProp>();
             }
-            if (f_prest.ePreType == global::CharacterMgr.PresetType.Wear || f_prest.ePreType == global::CharacterMgr.PresetType.All)
+            else if (f_prest.ePreType == global::CharacterMgr.PresetType.Wear )
             {
                 array = (from mp in f_prest.listMprop
                          where 97 <= mp.idx && mp.idx <= 105
+                         select mp).ToArray<global::MaidProp>();
+            }
+
+           else if ( f_prest.ePreType == global::CharacterMgr.PresetType.All)
+            {
+                array = (from mp in f_prest.listMprop
+                         where 88 <= mp.idx && mp.idx <= 105
                          select mp).ToArray<global::MaidProp>();
             }
 
